@@ -13,7 +13,7 @@ def missing(arr, n):
     actual_sum = 0
     for i in arr:
         actual_sum += i
-    diff = expected_sum-actual_sum
+    diff = int(expected_sum-actual_sum)
 
     if diff > 0:
         print(diff , "is the missing element")
