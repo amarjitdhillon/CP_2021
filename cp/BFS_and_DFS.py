@@ -44,7 +44,7 @@ class Node:
             res.append(root.data)
         return res
 
-    def dfs(self,root):
+    def bfs(self,root):
         queue = []
         res = []   # for string the output
         if root:
@@ -75,4 +75,4 @@ if __name__ == '__main__':
     print("  In order =", tree.inorderTraversal(tree))
     print(" Pre order =", tree.preorderTraversal(tree))
     print("Post order =", tree.postorderTraversal(tree))
-    print("       BFS =", tree.dfs(tree))
+    print("       BFS =", tree.bfs(tree))
