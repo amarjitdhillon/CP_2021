@@ -50,13 +50,20 @@ class Node:
 
 if __name__ == '__main__':
     # [3, 9, 20, null, null, 15, 7]
-    root = Node(1)
-    root.left = Node(2)
-    root.right = Node(3)
-    root.left.left = Node(4)
-    root.left.right = Node(None)
-    root.right.left = Node(None)
-    root.right.right = Node(3)
+    root = Node(3)
+    root.left = Node(9)
+    root.right = Node(20)
+    root.left.left = None
+    root.left.right = None
+    root.right.left = Node(15)
+    root.right.right = Node(7)
 
+    # [2,null,3,null,4,null,5,null,6]
+    root = Node(2)
+    root.left = None
+    root.right = Node(3)
+    root.right.right = Node(4)
+    root.right.right.right = Node(5)
+    root.right.right.right.right = Node(6)
 
     print(root.minDepth(root))
