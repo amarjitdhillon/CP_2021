@@ -1,6 +1,6 @@
 class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        # 1. put the both lists to set to get the unique valeus 
+        # 1. put the both lists to set to get the unique values 
         # 2. find the common values from both sets by iterating over the smaller set and finding the values which exists in both sets
         # 3. return the common values
         
