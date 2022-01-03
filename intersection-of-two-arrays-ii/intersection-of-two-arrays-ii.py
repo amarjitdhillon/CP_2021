@@ -29,7 +29,10 @@ class Solution:
             create_frequency_map(nums2)
             return find_intersection(nums1)
 
-                
+        '''
+        Time complexity: O(m+n) as we are going through both of the lists once
+        Space complexity: 2* O(min(m,n)) for hashmap and result array
+        '''
             
         
         
