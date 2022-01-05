@@ -12,18 +12,19 @@ class Solution:
             if root is None:
                 return 
             
-            # print left
+            # recurse left node
             if root.left:
                 dfs_inorder(root.left)
                     
-            # add root
+            # add root value
             if root:
                 result.append(root.val)
             
-            # add right node
+            # recurse right node
             if root.right:
                 dfs_inorder(root.right)
             
-        dfs_inorder(root)
-        return result
+            return result
+
+        return dfs_inorder(root)
         
