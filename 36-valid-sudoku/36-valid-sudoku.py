@@ -23,7 +23,7 @@ class Solution:
                 if board[r][c] in rows_hashmap[r] or  board[r][c] in cols_hashmap[c] or  board[r][c] in square_hashmap[(r//3,c//3)]:
                     return False
                 
-                # else update the matrics
+                # else update the hashmaps
                 rows_hashmap[r].add(board[r][c])
                 cols_hashmap[c].add(board[r][c])
                 square_hashmap[(r//3,c//3)].add(board[r][c])
