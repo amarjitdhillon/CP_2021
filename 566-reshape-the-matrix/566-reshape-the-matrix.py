@@ -21,6 +21,7 @@ class Solution:
         
         
         def perform_coversion():
+            # create a new matrix of the size r,c as we have to copy the elements to new array
             result = [[0 for x in range(c)] for y in range(r)]
             
             c_index , r_index = 0,0
@@ -36,6 +37,7 @@ class Solution:
                     
         # return the original array if the conversion is not valid
         if not is_valid_conversion():
+            # we will return False if the conversion is not possible
             return mat
         
         return perform_coversion()
