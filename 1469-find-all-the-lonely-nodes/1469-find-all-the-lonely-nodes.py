@@ -25,6 +25,5 @@ class Solution:
             inorder(node.left)
             inorder(node.right)
 
-        
         inorder(root)
         return self.lonely
