@@ -18,14 +18,14 @@ class Solution:
             if not root:
                 return
             
-            # if root.left and root.left.val > low:
             if root.left :
+            # if root.left :
                 inorder(root.left)
             
             if root and root.val >= low and root.val <=high:
                 self.result += root.val
             
-            if root.right:
+            if root.right :
                 inorder(root.right)
             
         inorder(root)
