@@ -9,7 +9,7 @@ class Solution:
         """
         We can do any traveral here and find a solution in O(n) time while doing a simple comparision if that value lies in low,high range and then return the sum
         
-        The time complexity can be optimized by ignorign all the left subtree values lower then low and all right subtree values grater then high value
+        The time complexity can be optimized by ignorr all the left subtree values lower then "low" and all right subtree values grater then "high" value
         """
         
         self.result = 0
@@ -18,15 +18,15 @@ class Solution:
             if not root:
                 return
             
-            if root.left :
-            # if root.left :
-                inorder(root.left)
-            
-            if root and root.val >= low and root.val <=high:
-                self.result += root.val
-            
-            if root.right :
-                inorder(root.right)
+            if root: 
+                if root.left and root.val > low:
+                    inorder(root.left)
+
+                if low <= root.val <= high:
+                    self.result += root.val
+
+                if root.right and root.val < high:
+                    inorder(root.right)
             
         inorder(root)
         return self.result
