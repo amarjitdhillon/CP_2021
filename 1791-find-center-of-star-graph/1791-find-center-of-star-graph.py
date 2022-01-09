@@ -1,14 +1,15 @@
 class Solution:
     def findCenter(self, edges: List[List[int]]) -> int:
-        """
-        - First we can create a adjacency list (as hashmap) from the given edges list. This will take o(n) time
-        - While creating the adjacency list hashmap we can calculate the degree of each vertex
-        - if the degree of a vertes has length equal to length of "edges list" then break from the loop and return that vertex
-        
-        Time complexity: O(N) as we are iterating once in a graph
-        Space complexity: O(N) for storing hashmap
-        """
+
         def using_hashmap():
+            '''
+            - First we can create a adjacency list (as hashmap) from the given edges list. This will take o(n) time
+            - While creating the adjacency list hashmap we can calculate the degree of each vertex
+            - if the degree of a vertes has length equal to length of "edges list" then break from the loop and return that vertex
+
+            Time complexity: O(N) as we are iterating once in a graph
+            Space complexity: O(N) for storing hashmap
+            '''
             # create a adjacency list
             al = collections.defaultdict(list)
             res = 0
@@ -26,12 +27,18 @@ class Solution:
 
             return res
         
-        f=edges[0][0] 
-        s=edges[0][1]
-        if(f in edges[1]):
-            return f
-        else:
-            return s
+        def simpler_approach():
+            '''
+            This approach uses the fact that the center node should be present in all the pairs. So it simply means that if we pick any one node from the from the first pair, then either one of these nodes should be present in the second pair too. Once we found that node, that is our answer
+            '''
+            x=edges[0][0] 
+            y=edges[0][1]
+            if(x in edges[1]):
+                return x
+            else:
+                return y
+            
+        return simpler_approach()
         
         
         
