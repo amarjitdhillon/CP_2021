@@ -2,11 +2,11 @@ class Solution:
     def findCenter(self, edges: List[List[int]]) -> int:
         """
         - First we can create a adjacency list (as hashmap) from the given edges list. This will take o(n) time
-        - Then we can iterate over the adjacency list hashmap and calculate the degree of each vertex
-        - Output the node, which has degree as length of edges list
+        - While creating the adjacency list hashmap we can calculate the degree of each vertex
+        - if the degree of a vertes has length equal to length of "edges list" then break from the loop and return that vertex
         
-        Time complexity: O(N) as we are iterating
-        Space complexity:
+        Time complexity: O(N) as we are iterating once in a graph
+        Space complexity: O(N) for storing hashmap
         """
         
         # create a adjacency list
