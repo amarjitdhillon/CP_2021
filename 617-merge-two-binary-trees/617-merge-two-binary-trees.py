@@ -6,7 +6,6 @@
 #         self.right = right
 class Solution:
     def mergeTrees(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> Optional[TreeNode]:        
-        # pre order traversal
         def preorder(x,y):
             if not x :
                 return y
