@@ -7,6 +7,16 @@ class Solution:
         """
         
         def withSorting(nums):
+            """
+            1. if len of the nums <=2, it means it does not have a triplet, so we can return []
+            2. Else, sort the nums array
+            3. loop over the list once form first till second last element, and set the low and high pointers
+            4. set the low pointer as i+1 and high pointer as end of the list
+            5. repeat till low < high
+            6. if sum of three nums == 0 , add that element to the list, sort it and add them to a set (as we need to return the unique set)
+            7. if the sum of three nums < 0, it means we need to move towards right, so decrement the high pointer
+            8. if the sum of three nums > 0, it means we need to move towards left, so increment the low pointer
+            """
             # special case
             if len(nums) <= 2:
                 return []
@@ -24,7 +34,7 @@ class Solution:
                     val = nums[x]+ nums[b] + nums[e]
                     if val == 0:
                         # we have found the sum
-                        result.add(tuple(sorted([nums[x],nums[b],nums[e]])))
+                        result.add(tuple(sorted((nums[x],nums[b],nums[e]))))
                         
                         b += 1
                         e -= 1
