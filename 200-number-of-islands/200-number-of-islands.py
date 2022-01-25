@@ -4,7 +4,7 @@ class Solution:
         
         x = 0
         def findIsland(r,c):
-            
+            # this function is called only if the value is equal to 1, so we set it to something else
             grid[r][c] = "x"
                 
             # find right 
