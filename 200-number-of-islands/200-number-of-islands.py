@@ -8,19 +8,19 @@ class Solution:
             grid[r][c] = "x"
                 
             # find right 
-            if c+1 > -1 and c+1 < num_cols and grid[r][c+1] == "1":
+            if c+1 < num_cols and grid[r][c+1] == "1":
                 findIsland(r,c+1)
             
             # call left
-            if c-1 > -1 and c-1 < num_cols and grid[r][c-1] == "1":
+            if c-1 > -1 and grid[r][c-1] == "1":
                 findIsland(r,c-1)
                 
             # call top
-            if r-1 > -1 and r-1 < num_rows and grid[r-1][c] == "1":
+            if r-1 > -1 and grid[r-1][c] == "1":
                 findIsland(r-1, c)
             
             # call bottom
-            if r+1 < num_rows and r+1 > 0 and grid[r+1][c] == "1":
+            if r+1 < num_rows and grid[r+1][c] == "1":
                 findIsland(r+1, c)
                         
         for row in range(num_rows):
