@@ -5,11 +5,7 @@ class Solution:
         x = 0
         def findIsland(r,c):
             
-            if grid[r][c] == "x":
-                return
-
-            if grid[r][c] == "1":
-                grid[r][c] = "x"
+            grid[r][c] = "x"
                 
             # find right 
             if c+1 > -1 and c+1 < num_cols and grid[r][c+1] == "1":
