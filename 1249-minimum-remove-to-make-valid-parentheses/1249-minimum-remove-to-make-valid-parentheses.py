@@ -12,8 +12,9 @@ class Solution:
         Finally join the elements in stack and return the string
         '''
         stack = [] # this will hold the braces
-        
         open_brace, close_brace = '(', ')'
+		
+		# first pass
         for i in range(len(s)):
             char = s[i]
             if char == open_brace:
@@ -24,16 +25,17 @@ class Solution:
                 else:  # add the close brace
                     stack.append([char,i])
         
-        extra = [] # contain ideex of elements to be removed
+        extra = [] # contain index of elements to be removed
         res = []   # final list of chars to be returned
         
+		# second pass
         for [x,y] in stack:
             extra.append(y) 
             
+		# third pass	
         for i in range(len(s)):
             if i in extra: # skip this char
                 continue
             res.append(s[i])
             
         return "".join(res) # return the chars as string
-                
