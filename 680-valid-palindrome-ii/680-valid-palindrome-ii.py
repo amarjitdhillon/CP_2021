@@ -1,7 +1,7 @@
 class Solution:
     def validPalindrome(self, s: str) -> bool:
-        if len(s) == 2:
-            return True
+        # if len(s) == 2:
+        #     return True
         
         l, h = 0, len(s)-1
   
