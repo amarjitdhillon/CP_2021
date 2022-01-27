@@ -1,5 +1,5 @@
 class DLL:
-    def __init__(self):
+    def __init__(self): # create a node for doubly linked list
         self.key = 0
         self.val = 0
         self.next = None
@@ -8,21 +8,21 @@ class DLL:
     
 class LRUCache:
     def addNodeToHead(self, node: DLL):
-        # here we will add the current node after head node
+        # This method will add the current node after head node
         node.prev = self.head
         node.next = self.head.next
         
         self.head.next.prev = node
         self.head.next = node
-        return node
         
     def deleteLastNode(self):
-        # we will delete the last node in this case
+        # we will delete the second last node in this case before tail node
         last = self.tail.prev
         self.deleteNode(last)
-        return last
+        return last      # returning the node as we might want to get the key:val of deleted node
     
     def deleteNode(self, node):
+        # This is to deleted a given node, not necessarally the last node
         x = node.prev
         y = node.next
         x.next = y
@@ -30,20 +30,20 @@ class LRUCache:
         
     def moveNodeToHead(self, node: DLL):
         '''
-        - If a node in accessed, then we need to delete that node and then move it to head
-        - We will first delete this node 
-        - Then create this node in front of the head
+        - If a node in accessed using get(), then we need to delete that node and then move it to head to update it's priority
+        - We will first delete this node usind deleteNode()
+        - Then create this node in front of the head using addNodeToHead()
         '''
         self.deleteNode(node)
         self.addNodeToHead(node)
     
     def __init__(self, capacity: int):
-        self.cache = {} # this hashmap consists of key: address_to_node
+        self.cache = {}             # this hashmap consists of key: address_to_node
         self.capacity = capacity
         self.head = DLL()
         self.tail = DLL()
         
-        self.head.next = self.tail
+        self.head.next = self.tail   # connecting the head and tail nodes with one another
         self.tail.prev = self.head
 
     def get(self, key: int) -> int:
@@ -51,12 +51,12 @@ class LRUCache:
         if node exists, then show the value and move it to head
         if node do not exist, then return -1
         """
-        # get the address of the node
-        node = self.cache.get(key)
+        node = self.cache.get(key) # get the address of the node
         
-        if not node:
+        if not node: # if node does not exist in cache
             return -1
     
+        # if node exists, then we will move this node to head to update it's priority and return it's value
         self.moveNodeToHead(node)
         return node.val
         
@@ -70,28 +70,24 @@ class LRUCache:
             If there is space, then add the node to the head --> update cache
             If no space then delete the node --> then add the node to the head --> update address in cache
         '''
-        
         node = self.cache.get(key)
         
         if node:
-            # we need to update the value and update the priority
+            # as node already exists, so we need to update the value and priority
             node.val = value
             self.moveNodeToHead(node) 
         else:
-            # create a node
+            # create a new node with given key and value
             node = DLL()
             node.key = key
             node.val = value
             
             # add this reference to the cache
-            self.cache[key] = node
-            self.addNodeToHead(node)
+            self.cache[key] = node    # save the address of this node to the cache's value
+            self.addNodeToHead(node)  # add this node in front of head node. As we have added this node then it might happen that cache size is > capacity 
 
-            if len(self.cache.keys()) > self.capacity:
-                # remove the pre-tail node from DLL
-                temp = self.deleteLastNode()
-                
-                # remove the node from cache
-                del self.cache[temp.key]
+            if len(self.cache.keys()) == self.capacity+1: # if cache size is one more then the capacity
+                temp = self.deleteLastNode() # remove the second last node from DLL before the tail node to make space
+                del self.cache[temp.key] # remove the node from cache
 
                 
