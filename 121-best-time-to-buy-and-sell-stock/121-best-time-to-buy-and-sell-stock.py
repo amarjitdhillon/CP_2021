@@ -1,6 +1,6 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        if len(prices) == 0 or len(prices) == 1:
+        if len(prices) == 0 or len(prices) == 1: # as we can not sell, so profit is 0
             return 0
         
         '''
@@ -13,11 +13,11 @@ class Solution:
         maxProfit = 0
         
         for price in prices:
-            if price < minPrice:
+            if price < minPrice: #update the min price
                 minPrice = price
                 continue
             
-            if price - minPrice > maxProfit:
+            if price - minPrice > maxProfit: # update the max profit
                 maxProfit = price - minPrice
         
         return maxProfit
