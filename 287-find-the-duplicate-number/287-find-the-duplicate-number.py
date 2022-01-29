@@ -11,9 +11,9 @@ class Solution:
             if slow == fast:
                 break
                 
-        curr = nums[0]
-        while(curr != slow):
-            curr = nums[curr]
+        fast = nums[0]
+        while(fast != slow):
+            fast = nums[fast]
             slow = nums[slow]
             
         return slow
