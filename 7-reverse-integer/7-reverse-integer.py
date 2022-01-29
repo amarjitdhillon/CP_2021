@@ -1,15 +1,13 @@
 class Solution:
     def reverse(self, x: int) -> int:
-        
         limit = math.pow(2,31)
-        
         negative = False
+        r = 0
+
         if x < 0: 
             negative = True
             x = -x      # removing -ve for now and will add -ve to result
             
-        r = 0
-        
         while(x != 0):
             l = x%10      # remainder is the last digit
             x = x//10     # quotient is the pending digit
