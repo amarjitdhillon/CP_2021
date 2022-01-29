@@ -7,4 +7,3 @@ class Solution:
             nums[abs(x)-1] *= -1     # mark the location as -ve
         return r
             
-        
