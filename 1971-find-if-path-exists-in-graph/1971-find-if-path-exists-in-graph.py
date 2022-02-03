@@ -16,7 +16,7 @@ class Solution:
         if not start in edgeDict or not end in edgeDict:
             return False
         
-        visited = [False] * (len(edgeDict)+10)
+        visited = [False] * (len(edgeDict)*2)
         queue = [start]
         
         while queue:
