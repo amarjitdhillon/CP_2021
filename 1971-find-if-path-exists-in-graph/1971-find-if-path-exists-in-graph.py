@@ -19,6 +19,8 @@ class Solution:
         visited = [False] * (len(edgeDict)*2)
         queue = [start]
         
+        found = False
+        
         while queue:
             node = queue.pop(0)  # take out the node which we want to process
             
@@ -26,14 +28,15 @@ class Solution:
             visited[node] = True
             
             if end in edgeDict[node]:
-                return True
+                found = True
+                break
             
             # add all the neighbours to the queue for processing
             for val in edgeDict[node]:
                 if visited[val] == False: # only add the node if it is not visited
                     queue.append(val)
                 
-        return False
+        return found
         
         
             
