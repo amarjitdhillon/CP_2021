@@ -1,17 +1,22 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        # as s and t consist of lowercase English letters, so we can create an array of lengh 26 represendng each char
+        # as s and t consist of lowercase English letters, so we can solve this problem in 2 ways
+            # 1. Create 2 list of 26 length and compare them at the end, if they are same --> words are anagram
+            # 2. Second approach (better) is to use just one list of 0 values. For first word increment the count for each char and for another word decrement the counter for each char. If the counter at any character is < 0, it means that the word is not an anagram and thus return False. Else return True at end of second iteration
         
-        # langths of both should be same
+        # lengths of both should words should be same
         if len(s) != len(t):
             return False
         
-        charListS, charListT = [0]*26, [0]*26
+        charList= [0]*26
         
-        for i in s:
-            charListS[(ord(i)- ord('a'))] += 1
         
-        for i in t:
-            charListT[(ord(i)- ord('a'))] += 1
+        for i in s: # increment the counter in first iteration
+            charList[(ord(i)- ord('a'))] += 1
         
-        return True if charListS == charListT else False
+        for i in t: # decrement the counter in first iteration
+            charList[(ord(i)- ord('a'))] -= 1
+            if  charList[(ord(i)- ord('a'))] < 0:
+                return False
+        
+        return True 
