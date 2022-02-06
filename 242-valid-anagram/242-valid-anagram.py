@@ -1,6 +1,11 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         # as s and t consist of lowercase English letters, so we can create an array of lengh 26 represendng each char
+        
+        # langths of both should be same
+        if len(s) != len(t):
+            return False
+        
         charListS, charListT = [0]*26, [0]*26
         
         for i in s:
