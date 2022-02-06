@@ -1,13 +1,7 @@
 class Solution:
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:        
         """
-        This can be done in 2 ways:
-        1. without sorting, i.e modifying the original array
-        2. with sorting, without modifying original array. This approach is followed in the given solution
-        """
-        
-        """
-        Using second approach
+        Approach
         1. If len of the nums <=2, it means it does not have a triplet, so we can return []
         2. Else, sort the nums array to that we can proceed furhter. This will take nlog(n) time
         3. Linearly iterate over the list form the first item till second last element, and set the low and high pointers to low +1 and len(arr) resp
@@ -18,8 +12,7 @@ class Solution:
         8. If the sum of three nums > 0, it means we need to move towards left, so increment the low pointer
         9. Return result set
         
-        Time complexity =Sorting the array takes \mathcal{O}(n\log{n})O(nlogn), so overall complexity is \mathcal{O}(n\log{n} + n^2)O(nlogn+n 2). This is asymptotically equivalent to \mathcal{O}(n^2)O(n 2)
-        
+        Time complexity = Sorting the array takes O(nlogn), so overall complexity is (n\log{n} + n^2  This is asymptotically equivalent to (n^2)
         Space complexity: O(n) for using set
         """
         # special case
