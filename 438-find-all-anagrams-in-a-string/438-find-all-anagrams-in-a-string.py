@@ -12,7 +12,7 @@ class Solution:
         if len(p) > len(s): # edge case
             return res
         
-        for c in p: # freq count of second word
+        for c in p:         # freq count of second word
             charP[ord(c)-ord('a')] += 1
         
         for i in range(0, len(s)-len(p)+1): # iterate over the first word with sliding window of len(p)
