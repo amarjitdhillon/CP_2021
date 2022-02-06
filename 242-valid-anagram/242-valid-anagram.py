@@ -10,12 +10,11 @@ class Solution:
         
         charList= [0]*26
         
+        for i in s: 
+            charList[(ord(i)- ord('a'))] += 1  # increment the counter in first iteration
         
-        for i in s: # increment the counter in first iteration
-            charList[(ord(i)- ord('a'))] += 1
-        
-        for i in t: # decrement the counter in first iteration
-            charList[(ord(i)- ord('a'))] -= 1
+        for i in t: 
+            charList[(ord(i)- ord('a'))] -= 1  # decrement the counter in second iteration
             if  charList[(ord(i)- ord('a'))] < 0:
                 return False
         
