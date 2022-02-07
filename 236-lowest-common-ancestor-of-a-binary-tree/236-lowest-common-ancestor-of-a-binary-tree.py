@@ -14,7 +14,7 @@ class Solution:
         x = self.lowestCommonAncestor(root.left, p, q)
         y = self.lowestCommonAncestor(root.right, p, q)
         
-        if (x and y) or root in [p,q]:
+        if (x and y) or root in [p,q]: # root in [p,q] as node can be ancestor of itself
             return root
         else:
             return x or y
