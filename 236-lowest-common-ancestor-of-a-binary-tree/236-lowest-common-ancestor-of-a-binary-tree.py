@@ -17,5 +17,5 @@ class Solution:
         if (x and y) or root in [p,q]: # root in [p,q] as node can be ancestor of itself
             return root
         else:
-            return x or y
+            return x or y # if either of one is found then return that node
         
