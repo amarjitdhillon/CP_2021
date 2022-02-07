@@ -17,11 +17,13 @@ class Solution:
             
             for c in word:
                 freq_list[ord(c)-ord('a')] += 1   
-                
-            if tuple(freq_list) not in c_dict.keys():
-                c_dict[tuple(freq_list)] = [word]
+            
+            freq_list = tuple(freq_list)
+            
+            if freq_list not in c_dict.keys():
+                c_dict[freq_list] = [word]
             else:
-                c_dict[tuple(freq_list)].append(word)
+                c_dict[freq_list].append(word)
                 
         return c_dict.values()
         
