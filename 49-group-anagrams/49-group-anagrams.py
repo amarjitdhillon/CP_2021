@@ -6,11 +6,9 @@ class Solution:
     - If that key of list is not present in the hashmap, then create a new key and value pair.
     - At the end, append the list values of hashmap to result list and return result list
         """
-    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        res = []
-        
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:        
         if len(strs) == 0:
-            return res
+            return []
         
         c_dict = {}
         
@@ -25,11 +23,7 @@ class Solution:
             else:
                 c_dict[tuple(freq_list)].append(word)
                 
-        
-        for val in c_dict.values():
-            res.append(val)
-        
-        return res
+        return c_dict.values()
         
         
         
