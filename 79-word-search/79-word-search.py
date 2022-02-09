@@ -1,29 +1,52 @@
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
-        rows = len(board)      # num of rows 
-        cols = len(board[0])   # num of cols
+        R = len(board)       # num of rows 
+        C = len(board[0])    # num of cols
         
-        visited = set()  # to hold all the values which are visited before in the path
+        # use a set to hold all the values which are visited before in the path
+        visited = set()     
         
+        '''
+        Desc for findIfExists function
+        r: represent current row index  starting from top, left as 0,0
+        c: represent current column index starting from top, left as 0,0
+        i: represent # of characters found so far
+        '''
         def findIfExists(r,c,i):
-            if i == len(word):  # if this is the last char, then return True as we have alredy found all the chars that is why the index is equal to len(word) now
+            # Base case: if this is the last char, then return True as we have alredy found all the chars that is why the index is equal to len(word) now
+            if i == len(word):  
                 return True
             
-            # return false for all invalid values
-            if r < 0 or r >= rows or c < 0 or c >= cols or word[i] != board[r][c] or (r,c) in visited:  # if the element was last seen in the visited set, it became invalid so we are returning False
+            '''
+            Desc: Return false for all invalid cases which are:-
+            - The values of r and c are out of bounds
+            - The ith character we are looking for has not been found in the board
+            - This r,c (representing a cell) was already visited
+            
+            In any such case, return False
+            '''
+            if r < 0 or r >= R or c < 0 or c >= C or word[i] != board[r][c] or (r,c) in visited:  
                 return False
-                
-            visited.add((r,c)) # to make sure we are not using the same element twice
-            temp = findIfExists(r-1,c,i+1) or findIfExists(r+1,c,i+1) or findIfExists(r,c+1,i+1) or findIfExists(r,c-1,i+1) # if any of the neighbours is true, we return true else we will backtrack
-            visited.remove((r,c)) # remove the position of item from the list as we have iterated over to it's next set of chars
+            
+            # to make sure we are not using the same element twice, add the current cell tuple to a visited set    
+            visited.add((r,c)) 
+            
+            # if any of the four immediate neighbours (left, right,top or botton) is true then we will return True else we will backtrack
+            temp = findIfExists(r-1,c,i+1) or findIfExists(r+1,c,i+1) or findIfExists(r,c+1,i+1) or findIfExists(r,c-1,i+1) 
+            
+            # remove the position of item from the list as we have iterated over to it's next set of chars
+            visited.remove((r,c)) 
+            
             return temp
         
         # Program execution starts here. We will run DFS for all the elements and return True if we found the word
-        for r in range(rows):
-            for c in range(cols):
+        for r in range(R):
+            for c in range(C):
                 if findIfExists(r,c,0):
                     return True
-        return False    # after all the DFS is run, if the program came here it means we have not found the word, so return False
+                
+        # after all the DFS is run, if the program came here it means we have not found the word, so return False
+        return False    
                     
         
         
