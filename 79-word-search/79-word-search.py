@@ -13,7 +13,10 @@ class Solution:
         i: represent # of characters found so far
         '''
         def findIfExists(r,c,i):
-            # Base case: if this is the last char, then return True as we have alredy found all the chars that is why the index is equal to len(word) now
+            ''' 
+            At the beginning, first we check if we reach the bottom case of the recursion, where the word to be matched is empty, i.e. we have already found the match for each prefix of the word.
+            Base case: if this is the last char, then return True as we have alredy found all the chars that is why the index is equal to len(word) now
+            '''
             if i == len(word):  
                 return True
             
@@ -31,10 +34,18 @@ class Solution:
             # to make sure we are not using the same element twice, add the current cell tuple to a visited set    
             visited.add((r,c)) 
             
-            # if any of the four immediate neighbours (left, right,top or botton) is true then we will return True else we will backtrack
+            '''
+            If the current step is valid, we then start the exploration of backtracking with the strategy of DFS. 
+            First, we mark the current cell as visited, e.g. any non-alphabetic letter will do. 
+            Then we iterate through the four possible directions, namely up, right, down and left. 
+            The order of the directions can be altered, to one's preference.
+            If any of the four immediate neighbours (left, right,top or botton) is true then we will return True else we will backtrack
+            '''
             temp = findIfExists(r-1,c,i+1) or findIfExists(r+1,c,i+1) or findIfExists(r,c+1,i+1) or findIfExists(r,c-1,i+1) 
             
-            # remove the position of item from the list as we have iterated over to it's next set of chars
+            '''
+            At the end of the exploration, we revert the cell back to its original state.
+            '''
             visited.remove((r,c)) 
             
             return temp
