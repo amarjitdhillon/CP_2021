@@ -12,7 +12,7 @@ class Solution:
             arr[start] += value
             arr[end+1] -= value
         
-        # Iterte over the array again and get the prefix sum. This time we need to iterate form second element onwards
+        # IIterate over the array again and get the prefix sum. This time we need to iterate from the second element onwards
         for x in range(1, length+1):
             arr[x] += arr[x-1]
         
