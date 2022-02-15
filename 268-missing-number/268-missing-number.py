@@ -6,9 +6,11 @@ class Solution:
         x ^ 0 = x
         """
         
-        # first, we take the overall xor for this range and save in r
+        # first, we take the overall xor for this range and save in r variable
         r = 0
-        for x in range(len(nums)+1): # len(nums) gives the total no of elements and +1 to include that number
+        
+        # len(nums) gives the total no of elements and +1 to include that number
+        for x in range(len(nums)+1): 
             r ^= x
         
         # XOR tthe result of overall XOR with all numbers
