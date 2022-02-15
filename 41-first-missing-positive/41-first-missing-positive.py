@@ -9,7 +9,8 @@ class Solution:
         '''
         for i in range(len(nums)):
             correctIdx = nums[i]-1
-            # Check if we can place the element
+            # Check if we can place the element. 
+            # As we are checking the correct idx within +ve bounds, so we are ignoring the -ve vales
             while 0 <= correctIdx <= len(nums)-1 and nums[i] != nums[correctIdx]:
                 # Swap the values
                 nums[correctIdx], nums[i] = nums[i], nums[correctIdx]
