@@ -1,24 +1,28 @@
 class Solution:
     def isPalindrome(self, x: int) -> bool:
+        # All -ve values will not be a palindrome in this case
         if x < 0:
             return False
         
-        x = str(x) # convert to a string
+        # convert to a string as we will iterate over it later
+        x = str(x) 
         
-        if len(x) == 2: # edge case for length 2
-            if x[0] == x[1]:
-                return True
-            else:
-                return False
+        # Let's handle an edge case for length == 2
+        if len(x) == 2: 
+            return True if x[0] == x[1] else False
+
             
-        # use two pointer for length > 2 
-        l = 0  
-        h = len(x)-1
+        # use two pointer for length > 2
+        # here we will use two pointers low and high. Initially low will point to the begining and high to the eld
+        low = 0  
+        high = len(x)-1
         
-        while(l<h):
-            if x[l] != x[h]:
+        while(low < high):
+            # if the values are not same then return False
+            if x[low] != x[high]:
                 return False
             else:
-                l += 1
-                h -= 1
+                # else shift low pointer to the right and high pointer to the left
+                low += 1
+                high -= 1
         return True
