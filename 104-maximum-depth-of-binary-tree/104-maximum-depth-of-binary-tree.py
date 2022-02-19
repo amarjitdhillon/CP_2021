@@ -12,9 +12,9 @@ class Solution:
             return 0
         
         # call left and right subtree and save the result in some variable 
-        lelt_height     = self.maxDepth(root.left)
-        right_height    = self.maxDepth(root.right)
+        left_depth     = self.maxDepth(root.left)
+        right_depth    = self.maxDepth(root.right)
         
-        # The max height of this subtree is max height of it's left or right subtree
-        return 1+ max(lelt_height,right_height)
+        # The max depth of this subtree is max depth of it's left or right subtree
+        return 1+ max(left_depth,right_depth)
         
