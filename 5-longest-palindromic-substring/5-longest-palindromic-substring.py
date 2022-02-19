@@ -7,9 +7,9 @@ class Solution:
             # These are global variables
             nonlocal resLen, palindromeString
             
-            # while the start and end strings are within bounds and are same keep expanding outwards 
+            # while the start and end strings are within bounds and are same, then keep expanding outwards 
             while(start >= 0 and end < len(arr) and (arr[start] == arr[end])): 
-                # find the current length of Palindrome string
+                # find the current length of the palindrome string
                 currLen = end-start+1
                 
                 if currLen > resLen:
@@ -21,7 +21,7 @@ class Solution:
         
         # driver code 
         for i in range(len(arr)):
-            findPalindrome(i,i)     # For odd length case, set start and end as same index 
-            findPalindrome(i,i+1)   # even length case, set start and end as adjoining indexes      
+            findPalindrome(i,i)     # For odd length case, set start and end as the same index 
+            findPalindrome(i,i+1)   # For even length case, set start and end as adjoining indexes      
         return palindromeString
             
