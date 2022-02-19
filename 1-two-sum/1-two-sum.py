@@ -28,9 +28,11 @@ class Solution:
             for i in range(len(nums)):
                 complement = target - nums[i]
                 if complement in hashmap:
+                    # we need to return the index of both the values
+                    # here i is the index of first value and second index for complement can be found in hashmap
                     return [i, hashmap[complement]]
                 else:
-                    # add it to the hashmap for first time
+                    # save the value and it's index 
                     hashmap[nums[i]] = i
         
         # return double_pass_solution() # try this
