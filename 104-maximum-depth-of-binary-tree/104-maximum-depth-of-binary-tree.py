@@ -7,11 +7,14 @@
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         
+        # base case: when we reach leaf node, then we will return 0
         if root == None:
             return 0
         
-        lh = self.maxDepth(root.left)
-        rh = self.maxDepth(root.right)
+        # call left and right subtree and save the result in some variable 
+        lelt_height     = self.maxDepth(root.left)
+        right_height    = self.maxDepth(root.right)
         
-        return 1+ max(lh,rh)
+        # The max height of this subtree is max height of it's left or right subtree
+        return 1+ max(lelt_height,right_height)
         
