@@ -7,24 +7,25 @@
 class Solution:
     def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         result = []
-        
+
+        # Order of traversal is left --> right --> root 
         def postorder(root):
-            # Order of traversal is left --> right --> root 
-            # base condition
-            if not root:
-                return
             
-            if root.left:
-                postorder(root.left)
+            # base condition for null node 
+            if not root: return
+            
+            # call DFS on left subtree
+            postorder(root.left)
                 
-            if root.right:
-                postorder(root.right)
+            # call DFS on right subtree
+            postorder(root.right)
                 
-            if root:
-                result.append(root.val)
+            # all root node value to list
+            result.append(root.val)
                 
             return result
-            
+        
+        # driver code
         return postorder(root)
             
             
