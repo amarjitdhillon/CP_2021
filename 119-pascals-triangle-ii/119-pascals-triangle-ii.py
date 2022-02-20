@@ -1,12 +1,10 @@
 class Solution:
     def getRow(self, rowIndex: int) -> List[int]:
-        # # edge case scenario
-        # if rowIndex == 0:
-        #     return []
 
         # create a pascal triangle and then add each row one by one to it
-        pascal, resut = []  , [] 
+        pascal = [] 
         
+        # as we are using 0 based index, so use rowIndex+1 
         for x in range(rowIndex+1):
             # we will build a row first. The first row will be of size 1 and later will be of size 2, 3, 4 etc
             row = [None for _ in range(x+1)]
@@ -22,6 +20,5 @@ class Solution:
             # append the row to triangle
             pascal.append(row)
             
-            # if x == rowIndex:
-                # result = row
+        # return the last row
         return row
