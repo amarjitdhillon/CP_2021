@@ -9,21 +9,16 @@ class Solution:
         result = []
         
         def preorder(root):
-        
             # for null node
-            if root is None:
-                return
+            if root is None: return
             
             # for leaf node: print it
-            # if root:
             result.append(root.val)
                 
             # call DFS on left child
-            # if root.left:
             preorder(root.left)
 
             # call DFS on right child
-            # if root.right:
             preorder(root.right)
         
             return result
