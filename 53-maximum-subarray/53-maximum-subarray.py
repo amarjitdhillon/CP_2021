@@ -6,15 +6,17 @@ class Solution:
         At the end, return max result
         '''
         
-        current_sum, max_sum = 0, nums[0] # add first element to max array as len(nums) > 1 (given constaint)
+        # add first element as the max_sum as len(nums) > 1 ( as per given constaint)
+        current_sum, max_sum = 0, nums[0] 
+        
         for x in nums:
             current_sum += x
-            
         
-            if current_sum > max_sum: # update the max sum
+            # update the max sum
+            if current_sum > max_sum:
                 max_sum = current_sum
                 
-            # reset if sum is negative
+            # reset the current sum if it is negative
             if current_sum < 0: 
                 current_sum = 0
 
