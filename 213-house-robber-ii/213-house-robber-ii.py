@@ -1,14 +1,12 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        
+        # we don't need to consider len(nums) = [0,1] as 1 <= nums.length <= 100
         if len(nums) == 0:
             return 0
         
         if len(nums) == 1:
             return nums[0]
         
-        if len(nums) == 2:
-            return max(nums[0], nums[1])
         
         # function to rob a neighbourhood in a straight line
         def robHouse(houses) -> int:
