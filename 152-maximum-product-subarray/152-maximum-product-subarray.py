@@ -26,10 +26,10 @@ class Solution:
         
         min_so_far, max_so_far, res = 1, 1, nums[0]
         
-        for x in nums:
-            temp = x*max_so_far
-            max_so_far = max(x, temp, x*min_so_far)
-            min_so_far = min(x, temp, x*min_so_far)
+        for curr in nums:
+            temp = curr * max_so_far    # here temp is used to use same max_so_far and min_so_far in the same iteration
+            max_so_far = max(curr, temp, curr*min_so_far)
+            min_so_far = min(curr, temp, curr*min_so_far)
             res = max(res,max_so_far )
         return res
         
